@@ -1,0 +1,392 @@
+.capture-card {
+
+    margin-top: 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #ECECF5;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(18, 18, 23, .06);
+
+}
+
+.capture-tabs {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 30px;
+
+    height: 70px;
+
+    border-bottom: 1px solid #F0F0F6;
+
+}
+
+.capture-tabs button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    color: #77778D;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    padding: 10px 8px;
+
+    transition: .25s;
+
+    border-bottom: 3px solid transparent;
+
+}
+
+.capture-tabs button:hover {
+    color: #6c63ff;
+}
+
+.capture-tabs .active {
+    color: #6c63ff;
+    border-bottom-color: #6c63ff;
+}
+
+.capture-content {
+
+    padding: 38px;
+
+}
+
+.capture-content h3 {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    color: #22223A;
+
+}
+
+.link-input {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    height: 64px;
+
+    border: 1px solid #E9E9F4;
+
+    border-radius: 18px;
+
+    padding: 0 22px;
+
+    transition: .25s;
+
+    margin-bottom: 12px;
+
+}
+
+.link-input:focus-within {
+
+    border-color: #6C63FF;
+
+    box-shadow: 0 0 0 4px rgba(108, 99, 255, .08);
+
+}
+
+.link-input svg {
+    color: #6c63ff;
+}
+
+.link-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+}
+
+.hint {
+    color: #8d8d9f;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.capture-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.option label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #55566b;
+}
+
+.select-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    height: 60px;
+
+    border: 1px solid #E9E9F4;
+
+    border-radius: 18px;
+
+    padding: 0 18px;
+
+    transition: .25s;
+
+}
+
+.select-box:focus-within {
+
+    border-color: #6C63FF;
+
+}
+
+.select-box svg {
+    color: #6c63ff;
+}
+
+.select-box select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.capture-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 35px;
+}
+
+.save-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 220px;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    background: linear-gradient(135deg, #7C5CFF, #5B46EA);
+
+    transition: .25s;
+
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(108, 99, 255, .35);
+}
+
+@media (max-width: 900px) {
+
+    .capture-options {
+        grid-template-columns: 1fr;
+    }
+
+    .capture-footer {
+        justify-content: stretch;
+    }
+
+    .save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Note Capture Styles  NoteForm.jsx*/
+.note-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    height: 58px;
+
+    border: 1px solid #e6e6ef;
+
+    border-radius: 16px;
+
+    padding: 0 18px;
+
+    margin-bottom: 18px;
+}
+
+.note-title svg {
+    color: #6c63ff;
+}
+
+.note-title input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: transparent;
+
+}
+
+.note-area {
+
+    width: 100%;
+
+    height: 170px;
+
+    resize: none;
+
+    border: 1px solid #e6e6ef;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+    outline: none;
+
+    font-family: inherit;
+
+}
+
+.note-area:focus,
+.note-title:focus-within {
+
+    border-color: #6c63ff;
+
+}
+
+/* Upload Box Styles ImageForm*/
+.upload-box {
+
+    border: 2px dashed #d9d9e8;
+
+    border-radius: 20px;
+
+    padding: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    transition: .25s;
+
+}
+
+.upload-box:hover {
+
+    border-color: #6c63ff;
+
+    background: #faf9ff;
+
+}
+
+.upload-box svg {
+
+    color: #6c63ff;
+
+}
+
+.upload-box h4 {
+
+    margin-top: 18px;
+
+    font-size: 20px;
+
+}
+
+.upload-box p {
+
+    margin: 10px 0 22px;
+
+    color: #888;
+
+}
+
+.upload-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #6c63ff;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
