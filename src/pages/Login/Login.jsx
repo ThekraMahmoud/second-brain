@@ -1,7 +1,8 @@
 import styles from "./Login.module.css";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import {
   Brain,
   Mail,
@@ -14,6 +15,8 @@ import {
 } from "lucide-react";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,9 +27,24 @@ function Login() {
         password,
       });
 
-      console.log(data);
+      // حفظ حالة تسجيل الدخول
+      localStorage.setItem("isLoggedIn", "true");
+
+      // (اختياري) حفظ بيانات المستخدم
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert("✅ Login successful!");
+
+      navigate("/profile");
     } catch (error) {
-      console.error(error.response?.data || error.message);
+      const errors = error.response?.data?.errors;
+
+      if (errors) {
+        const firstError = Object.values(errors)[0][0];
+        alert(firstError);
+      } else {
+        alert(error.response?.data?.message || "Invalid email or password");
+      }
     }
   };
 
@@ -83,10 +101,9 @@ function Login() {
       </div>
 
       {/* Right Side */}
-
       <div className={styles.right}>
         <div className={styles.form}>
-          <h2>Welcome Back </h2>
+          <h2>Welcome Back</h2>
 
           <p>Login to continue building your Second Brain.</p>
 
@@ -125,7 +142,7 @@ function Login() {
 
           <p className={styles.signup}>
             Don't have an account?
-            <Link to="/register">Create Account</Link>
+            <Link to="/register"> Create Account</Link>
           </p>
         </div>
       </div>

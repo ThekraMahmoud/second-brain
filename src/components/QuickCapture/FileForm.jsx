@@ -1,126 +1,85 @@
-import {
-    FileUp,
-    Upload,
-    Tag,
-    Circle,
-    Calendar,
-    Plus,
-} from "lucide-react";
+import { FileUp, Upload, Tag, Circle, Calendar, Plus } from "lucide-react";
 
 function FileForm() {
-    return (
-        <>
+  return (
+    <>
+      <h3>Upload a File</h3>
 
-            <h3>Upload a File</h3>
+      <div className="upload-box">
+        <FileUp size={50} />
 
-            <div className="upload-box">
+        <h4>Drag & Drop your file</h4>
 
-                <FileUp size={50} />
+        <p>PDF, DOCX, PPTX, ZIP...</p>
 
-                <h4>Drag & Drop your file</h4>
+        <button className="upload-btn">
+          <Upload size={18} />
+          Choose File
+        </button>
+      </div>
 
-                <p>
-                    PDF, DOCX, PPTX, ZIP...
-                </p>
+      <div className="capture-options">
+        <div className="option">
+          <label>Category</label>
 
-                <button className="upload-btn">
+          <div className="select-box">
+            <Tag size={18} />
 
-                    <Upload size={18} />
+            <select>
+              <option>Reference</option>
 
-                    Choose File
+              <option>Learning</option>
 
-                </button>
+              <option>Project</option>
 
-            </div>
+              <option>Document</option>
+            </select>
+          </div>
+        </div>
 
-            <div className="capture-options">
+        <div className="option">
+          <label>Status</label>
 
-                <div className="option">
+          <div className="select-box">
+            <Circle size={18} />
 
-                    <label>Category</label>
+            <select>
+              <option>Not Started</option>
 
-                    <div className="select-box">
+              <option>In Progress</option>
 
-                        <Tag size={18} />
+              <option>Completed</option>
+            </select>
+          </div>
+        </div>
 
-                        <select>
+        <div className="option">
+          <label>Reminder</label>
 
-                            <option>Reference</option>
+          <div className="select-box">
+            <Calendar size={18} />
 
-                            <option>Learning</option>
+            <select>
+              <option>No Reminder</option>
 
-                            <option>Project</option>
+              <option>Tomorrow</option>
 
-                            <option>Document</option>
+              <option>Next Week</option>
 
-                        </select>
+              <option>Next Month</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-                    </div>
-
-                </div>
-
-                <div className="option">
-
-                    <label>Status</label>
-
-                    <div className="select-box">
-
-                        <Circle size={18} />
-
-                        <select>
-
-                            <option>Not Started</option>
-
-                            <option>In Progress</option>
-
-                            <option>Completed</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-                <div className="option">
-
-                    <label>Reminder</label>
-
-                    <div className="select-box">
-
-                        <Calendar size={18} />
-
-                        <select>
-
-                            <option>No Reminder</option>
-
-                            <option>Tomorrow</option>
-
-                            <option>Next Week</option>
-
-                            <option>Next Month</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div className="capture-footer">
-
-                <button className="save-btn">
-
-                    <Plus size={18} />
-
-                    Add to Brain
-
-                </button>
-
-            </div>
-
-        </>
-    );
+      <div className="capture-footer">
+        <button className="save-btn">
+          <Plus size={18} />
+          Add to Brain
+        </button>
+      </div>
+    </>
+  );
 }
 
 export default FileForm;

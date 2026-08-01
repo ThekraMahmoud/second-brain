@@ -1,6 +1,6 @@
 import styles from "./Register.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import {
@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,16 +32,26 @@ function Register() {
         password_confirmation: confirmPassword,
       });
 
+      alert("✅ Account created successfully!");
+
       console.log(data);
+
+      navigate("/login");
     } catch (error) {
-      console.error(error.response?.data || error.message);
+      const errors = error.response?.data?.errors;
+
+      if (errors) {
+        const firstError = Object.values(errors)[0][0];
+        alert(firstError);
+      } else {
+        alert(error.response?.data?.message || "Registration failed");
+      }
     }
   };
 
   return (
     <div className={styles.page}>
       {/* Left Side */}
-
       <div className={styles.left}>
         <div className={styles.logo}>
           <Brain size={38} />
@@ -92,16 +104,14 @@ function Register() {
       </div>
 
       {/* Right Side */}
-
       <div className={styles.right}>
         <div className={styles.form}>
-          <h2>Create Account </h2>
+          <h2>Create Account</h2>
 
           <p>Join Second Brain and organize everything.</p>
 
           <div className={styles.input}>
             <User size={18} />
-
             <input
               type="text"
               placeholder="Full Name"
@@ -112,7 +122,6 @@ function Register() {
 
           <div className={styles.input}>
             <Mail size={18} />
-
             <input
               type="email"
               placeholder="Email Address"
@@ -123,7 +132,6 @@ function Register() {
 
           <div className={styles.input}>
             <Lock size={18} />
-
             <input
               type="password"
               placeholder="Password"
@@ -134,7 +142,6 @@ function Register() {
 
           <div className={styles.input}>
             <Lock size={18} />
-
             <input
               type="password"
               placeholder="Confirm Password"
@@ -150,7 +157,7 @@ function Register() {
 
           <p className={styles.signup}>
             Already have an account?
-            <Link to="/login">Login</Link>
+            <Link to="/login"> Login</Link>
           </p>
         </div>
       </div>
