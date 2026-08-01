@@ -70,23 +70,15 @@ function Sidebar() {
         </a>
       </nav>
 
-      {/* <div className="pro-card">
+      <div className="pro-card">
+        <Crown size={30} />
 
-                <Crown size={30} />
+        <h3>Upgrade to Pro</h3>
 
-                <h3>Upgrade to Pro</h3>
+        <p>Unlock AI search, smart summaries and unlimited storage.</p>
 
-                <p>
-                    Unlock AI search,
-                    smart summaries
-                    and unlimited storage.
-                </p>
-
-                <button>
-                    Upgrade
-                </button>
-
-            </div> */}
+        <button>Upgrade</button>
+      </div>
 
       <div className="settings">
         <Settings size={18} />

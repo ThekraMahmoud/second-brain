@@ -1,9 +1,11 @@
-import styles from "./Login.module.css";
-import axios from "axios";
+import styles from "./Register.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import {
   Brain,
+  User,
   Mail,
   Lock,
   ArrowRight,
@@ -13,15 +15,19 @@ import {
   Link2,
 } from "lucide-react";
 
-function Login() {
+function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const { data } = await axios.post("http://127.0.0.1:8000/api/login", {
+      const { data } = await axios.post("http://127.0.0.1:8000/api/register", {
+        name,
         email,
         password,
+        password_confirmation: confirmPassword,
       });
 
       console.log(data);
@@ -33,6 +39,7 @@ function Login() {
   return (
     <div className={styles.page}>
       {/* Left Side */}
+
       <div className={styles.left}>
         <div className={styles.logo}>
           <Brain size={38} />
@@ -40,19 +47,21 @@ function Login() {
         </div>
 
         <h1>
-          Everything you learn,
+          Start building
           <br />
-          in one place.
+          your Second Brain.
         </h1>
 
-        <p>Save notes, links, images and files. Never lose an idea again.</p>
+        <p>
+          Save your notes, files, links and ideas in one beautiful workspace.
+        </p>
 
         <div className={styles.cards}>
           <div className={styles.card}>
             <Sparkles size={22} />
             <div>
               <h4>Ideas</h4>
-              <span>Capture thoughts instantly.</span>
+              <span>Never lose inspiration.</span>
             </div>
           </div>
 
@@ -60,7 +69,7 @@ function Login() {
             <Lightbulb size={22} />
             <div>
               <h4>Knowledge</h4>
-              <span>Organize everything you learn.</span>
+              <span>Everything organized.</span>
             </div>
           </div>
 
@@ -68,7 +77,7 @@ function Login() {
             <FolderOpen size={22} />
             <div>
               <h4>Files</h4>
-              <span>Keep documents together.</span>
+              <span>Keep your documents safe.</span>
             </div>
           </div>
 
@@ -86,9 +95,20 @@ function Login() {
 
       <div className={styles.right}>
         <div className={styles.form}>
-          <h2>Welcome Back </h2>
+          <h2>Create Account </h2>
 
-          <p>Login to continue building your Second Brain.</p>
+          <p>Join Second Brain and organize everything.</p>
+
+          <div className={styles.input}>
+            <User size={18} />
+
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
 
           <div className={styles.input}>
             <Mail size={18} />
@@ -112,20 +132,25 @@ function Login() {
             />
           </div>
 
-          <button className={styles.loginBtn} onClick={handleLogin}>
-            Login
+          <div className={styles.input}>
+            <Lock size={18} />
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+
+          <button className={styles.registerBtn} onClick={handleRegister}>
+            Create Account
             <ArrowRight size={18} />
           </button>
 
-          <div className={styles.divider}>
-            <span>OR</span>
-          </div>
-
-          <button className={styles.googleBtn}>Continue with Google</button>
-
           <p className={styles.signup}>
-            Don't have an account?
-            <Link to="/register">Create Account</Link>
+            Already have an account?
+            <Link to="/login">Login</Link>
           </p>
         </div>
       </div>
@@ -133,4 +158,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

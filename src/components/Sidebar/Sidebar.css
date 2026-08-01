@@ -1,205 +1,171 @@
 .sidebar {
+  width: 260px;
 
-    width: 260px;
+  min-height: 100vh;
 
-    min-height: 100vh;
+  background: white;
 
-    background: white;
+  border-right: 1px solid #ececf3;
 
-    border-right: 1px solid #ECECF3;
+  padding: 26px;
 
-    padding: 26px;
+  display: flex;
 
-    display: flex;
-
-    flex-direction: column;
-
+  flex-direction: column;
 }
 
 .logo {
+  display: flex;
 
-    display: flex;
+  gap: 14px;
 
-    gap: 14px;
+  align-items: center;
 
-    align-items: center;
-
-    margin-bottom: 45px;
-
+  margin-bottom: 45px;
 }
 
 .logo-icon {
+  width: 46px;
 
-    width: 46px;
+  height: 46px;
 
-    height: 46px;
+  border-radius: 16px;
 
-    border-radius: 16px;
+  background: #f1eeff;
 
-    background: #F1EEFF;
+  display: flex;
 
-    display: flex;
+  align-items: center;
 
-    align-items: center;
+  justify-content: center;
 
-    justify-content: center;
-
-    color: #6C63FF;
-
+  color: #6c63ff;
 }
 
 .logo h2 {
+  font-size: 20px;
 
-    font-size: 20px;
-
-    margin-bottom: 3px;
-
+  margin-bottom: 3px;
 }
 
 .logo p {
+  color: #8a8a9b;
 
-    color: #8A8A9B;
-
-    font-size: 13px;
-
+  font-size: 13px;
 }
 
 .menu {
+  display: flex;
 
-    display: flex;
+  flex-direction: column;
 
-    flex-direction: column;
-
-    gap: 8px;
-
+  gap: 8px;
 }
 
 .menu a {
+  display: flex;
 
-    display: flex;
+  align-items: center;
 
-    align-items: center;
+  gap: 12px;
 
-    gap: 12px;
+  text-decoration: none;
 
-    text-decoration: none;
+  color: #55566b;
 
-    color: #55566B;
+  padding: 14px;
 
-    padding: 14px;
+  border-radius: 14px;
 
-    border-radius: 14px;
-
-    transition: .25s;
-
+  transition: 0.25s;
 }
 
 .menu a:hover {
-
-    background: #F7F6FF;
-
+  background: #f7f6ff;
 }
 
 .active {
+  background: #f1eeff;
 
-    background: #F1EEFF;
+  color: #6c63ff !important;
 
-    color: #6C63FF !important;
-
-    font-weight: 700;
-
+  font-weight: 700;
 }
 
 .divider {
+  height: 1px;
 
-    height: 1px;
+  background: #ececf3;
 
-    background: #ECECF3;
-
-    margin: 28px 0;
-
+  margin: 28px 0;
 }
 
 .sidebar h4 {
+  color: #999;
 
-    color: #999;
+  margin-bottom: 14px;
 
-    margin-bottom: 14px;
-
-    font-size: 13px;
-
+  font-size: 13px;
 }
 
 .pro-card {
+  margin-top: auto;
 
-    margin-top: auto;
+  background: #f6f4ff;
 
-    background: #F6F4FF;
+  border-radius: 20px;
 
-    border-radius: 20px;
+  padding: 20px;
 
-    padding: 20px;
-
-    text-align: center;
-
+  text-align: center;
 }
 
 .pro-card svg {
-
-    color: #6C63FF;
-
+  color: #6c63ff;
 }
 
 .pro-card h3 {
-
-    margin: 15px 0 10px;
-
+  margin: 15px 0 10px;
 }
 
 .pro-card p {
+  color: #777;
 
-    color: #777;
+  font-size: 14px;
 
-    font-size: 14px;
+  line-height: 1.6;
 
-    line-height: 1.6;
-
-    margin-bottom: 20px;
-
+  margin-bottom: 20px;
 }
 
 .pro-card button {
+  width: 100%;
 
-    width: 100%;
+  height: 45px;
 
-    height: 45px;
+  border: none;
 
-    border: none;
+  border-radius: 12px;
 
-    border-radius: 12px;
+  background: #6c63ff;
 
-    background: #6C63FF;
+  color: white;
 
-    color: white;
+  cursor: pointer;
 
-    cursor: pointer;
-
-    font-weight: 600;
-
+  font-weight: 600;
 }
 
 .settings {
+  display: flex;
 
-    display: flex;
+  gap: 10px;
 
-    gap: 10px;
+  align-items: center;
 
-    align-items: center;
+  margin-top: 20px;
 
-    margin-top: 20px;
+  color: #666;
 
-    color: #666;
-
-    cursor: pointer;
-
+  cursor: pointer;
 }
