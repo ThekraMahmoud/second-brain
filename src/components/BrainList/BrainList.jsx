@@ -1,65 +1,51 @@
 import "./BrainList.css";
 import BrainItem from "./BrainItem";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function BrainList() {
+  const [items, setItems] = useState([]);
 
-    const items = [
-        {
-            id: 1,
-            icon: "🎥",
-            title: "React Router Complete Guide",
-            source: "YouTube",
-            category: "Learning",
-            status: "Not Started",
-            date: "Today",
-        },
-        {
-            id: 2,
-            icon: "💡",
-            title: "Second Brain startup idea",
-            source: "Idea",
-            category: "Project",
-            status: "In Progress",
-            date: "Yesterday",
-        },
-        {
-            id: 3,
-            icon: "📄",
-            title: "Machine Learning Roadmap.pdf",
-            source: "PDF",
-            category: "Reference",
-            status: "Completed",
-            date: "2 days ago",
-        },
-    ];
+  useEffect(() => {
+    const fetchCaptures = async () => {
+      try {
+        const token = localStorage.getItem("token");
 
-    return (
-        <section className="brain-list">
+        const { data } = await axios.get("http://127.0.0.1:8000/api/captures", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+          },
+        });
 
-            <div className="brain-header">
+        setItems(data);
+      } catch (error) {
+        console.error("Error fetching captures:", error);
+      }
+    };
 
-                <div>
+    fetchCaptures();
+  }, []);
 
-                    <h2>Your Brain</h2>
+  return (
+    <section className="brain-list">
+      <div className="brain-header">
+        <div>
+          <h2>Your Brain</h2>
 
-                    <p>
-                        Everything you've captured in one place.
-                    </p>
+          <p>Everything you've captured in one place.</p>
+        </div>
+      </div>
 
-                </div>
-
-            </div>
-
-            <div className="brain-items">
-
-                {items.map((item) => (
-                    <BrainItem key={item.id} item={item} />
-                ))}
-
-            </div>
-
-        </section>
-    );
+      <div className="brain-items">
+        {items.length > 0 ? (
+          items.map((item) => <BrainItem key={item.id} item={item} />)
+        ) : (
+          <p>No captures yet.</p>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default BrainList;

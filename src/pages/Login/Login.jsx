@@ -26,7 +26,7 @@ function Login() {
         email,
         password,
       });
-
+      localStorage.setItem("token", data.token);
       // حفظ حالة تسجيل الدخول
       localStorage.setItem("isLoggedIn", "true");
 
@@ -35,7 +35,7 @@ function Login() {
 
       alert("✅ Login successful!");
 
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       const errors = error.response?.data?.errors;
 

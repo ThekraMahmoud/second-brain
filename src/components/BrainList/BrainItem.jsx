@@ -1,51 +1,58 @@
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, FileText, Link2, Image, File } from "lucide-react";
 
 function BrainItem({ item }) {
-    return (
-        <article className="brain-item">
+  const getIcon = () => {
+    switch (item.type) {
+      case "note":
+        return <FileText size={22} />;
 
-            <div className="brain-left">
+      case "link":
+        return <Link2 size={22} />;
 
-                <div className="brain-icon">
+      case "image":
+        return <Image size={22} />;
 
-                    {item.icon}
+      case "file":
+        return <File size={22} />;
 
-                </div>
+      default:
+        return <FileText size={22} />;
+    }
+  };
 
-                <div>
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString();
+  };
 
-                    <h3>{item.title}</h3>
+  return (
+    <article className="brain-item">
+      <div className="brain-left">
+        <div className="brain-icon">{getIcon()}</div>
 
-                    <p>{item.source}</p>
+        <div>
+          <h3>{item.title}</h3>
 
-                </div>
+          <p>{item.content || item.url || "No description"}</p>
+        </div>
+      </div>
 
-            </div>
+      <div className="brain-info">
+        <span className="category">{item.category}</span>
 
-            <div className="brain-info">
+        <span
+          className={`status ${item.status?.replace(/\s/g, "").toLowerCase()}`}
+        >
+          {item.status}
+        </span>
 
-                <span className="category">
-                    {item.category}
-                </span>
+        <span className="date">{formatDate(item.created_at)}</span>
 
-                <span className={`status ${item.status.replace(/\s/g, "").toLowerCase()}`}>
-                    {item.status}
-                </span>
-
-                <span className="date">
-                    {item.date}
-                </span>
-
-                <button className="menu-btn">
-
-                    <MoreHorizontal size={18} />
-
-                </button>
-
-            </div>
-
-        </article>
-    );
+        <button className="menu-btn">
+          <MoreHorizontal size={18} />
+        </button>
+      </div>
+    </article>
+  );
 }
 
 export default BrainItem;
